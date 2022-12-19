@@ -1,0 +1,73 @@
+ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+}
+
+li a{
+  height: 22rem;
+  width: 20rem;
+  border: 1px solid whitesmoke;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color:  rgb(90, 4, 40);
+}
+
+li a:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+li a img{
+  object-fit: cover;
+  height: 12rem;
+}
+
+.content{
+  margin-top: 0.3rem;
+  padding:  0.5rem 1rem;
+  position: relative;
+  height: 9rem;
+}
+
+.favourite{
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: red;
+}
+
+.favourite.not{
+  color: gray;
+}
+
+.stars{
+  margin-bottom: 0.2rem;
+}
+/*
+.product-item-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}*/
+
+.add-rem{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1rem;
+}
+
+.teal{
+  height: 20px;
+  align-self: center;
+}
+
