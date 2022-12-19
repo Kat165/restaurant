@@ -13,6 +13,9 @@ export const sample: Food[] = [
     origins:"Poland",
     cookTime:"25",
     inStock: 15,
+    ingredients:['flour','oil','cottage cheese','onion','potatoes','butter','pepper','salt'],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula velit sit amet elit dictum, quis porttitor nibh efficitur. Donec ultricies vulputate pretium. Aenean in orci a nisi dignissim semper. Nullam vel sagittis sem. Nam posuere nec quam sed semper. Integer vulputate eget lacus vel dignissim. Integer in mauris in.",
+    gallery:['assets/gallery/1_1.jpg','assets/gallery/1_2.jpg','assets/gallery/1_3.jpg']
   },
   {
     id:'2',
@@ -25,10 +28,13 @@ export const sample: Food[] = [
     origins:"Italy",
     cookTime:"25",
     inStock: 5,
+    ingredients:['flour','tomatoes','garlic','vinegar','salt','sugar','olive oil','mozzarella cheese'],
+    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula velit sit amet elit dictum, quis porttitor nibh efficitur. Donec ultricies vulputate pretium. Aenean in orci a nisi dignissim semper. Nullam vel sagittis sem. Nam posuere nec quam sed semper. Integer vulputate eget lacus vel dignissim. Integer in mauris in.",
+    gallery:['assets/gallery/2_1.jpg','assets/gallery/2_2.jpg','assets/gallery/2_3.jpg','assets/gallery/2_4.jpg']
   },
   {
     id:'3',
-    name:'Beetrot soup',
+    name:'Beetroot soup',
     price:24,
     tags:['soup','spicy'],
     favourite:false,
@@ -37,6 +43,9 @@ export const sample: Food[] = [
     origins:"Poland",
     cookTime:"15",
     inStock: 18,
+    ingredients:['beetroot','carrot','parsley','leek','beet sourdough','mushrooms'],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula velit sit amet elit dictum, quis porttitor nibh efficitur. Donec ultricies vulputate pretium. Aenean in orci a nisi dignissim semper. Nullam vel sagittis sem. Nam posuere nec quam sed semper. Integer vulputate eget lacus vel dignissim. Integer in mauris in.",
+    gallery:['assets/gallery/3_1.jpg','assets/gallery/3_2.jpg','assets/gallery/3_3.jpg']
   },
   {
     id:'4',
@@ -49,6 +58,9 @@ export const sample: Food[] = [
     origins:"International",
     cookTime:"45",
     inStock: 7,
+    ingredients:['beef','onion','eggs','salt','pepper','bread','tomatoes','mozzarella cheese','pickles','arugula','lettuce'],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula velit sit amet elit dictum, quis porttitor nibh efficitur. Donec ultricies vulputate pretium. Aenean in orci a nisi dignissim semper. Nullam vel sagittis sem. Nam posuere nec quam sed semper. Integer vulputate eget lacus vel dignissim. Integer in mauris in.",
+    gallery:['assets/gallery/4_1.jpg','assets/gallery/4_2.jpg','assets/gallery/4_3.jpg','assets/gallery/4_4.jpg']
   },
   {
     id:'5',
@@ -61,6 +73,9 @@ export const sample: Food[] = [
     origins:"India",
     cookTime:"25",
     inStock: 15,
+    ingredients:['chicken thighs','yogurt','garlic','ginger','garam masala','turmeric','cumin','chili','butter','tomato puree'],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula velit sit amet elit dictum, quis porttitor nibh efficitur. Donec ultricies vulputate pretium. Aenean in orci a nisi dignissim semper. Nullam vel sagittis sem. Nam posuere nec quam sed semper. Integer vulputate eget lacus vel dignissim. Integer in mauris in.",
+    gallery:['assets/gallery/5_1.jpg','assets/gallery/5_2.jpg','assets/gallery/5_3.jpg']
   },
   {
     id:'6',
@@ -73,6 +88,9 @@ export const sample: Food[] = [
     origins:"Japan",
     cookTime:"35",
     inStock: 11,
+    ingredients:['nori','rice','carrot','cucamber','avocado','tuna','salmon','wasabi'],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula velit sit amet elit dictum, quis porttitor nibh efficitur. Donec ultricies vulputate pretium. Aenean in orci a nisi dignissim semper. Nullam vel sagittis sem. Nam posuere nec quam sed semper. Integer vulputate eget lacus vel dignissim. Integer in mauris in.",
+    gallery:['assets/gallery/6_1.jpg','assets/gallery/6_2.jpg','assets/gallery/6_3.jpg']
   },
   {
     id:'7',
@@ -85,10 +103,13 @@ export const sample: Food[] = [
     origins:"Mexico",
     cookTime:"20",
     inStock: 30,
+    ingredients:['tortilla','cheese','onion','rice','tomatoes','beef','chili','red bean'],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula velit sit amet elit dictum, quis porttitor nibh efficitur. Donec ultricies vulputate pretium. Aenean in orci a nisi dignissim semper. Nullam vel sagittis sem. Nam posuere nec quam sed semper. Integer vulputate eget lacus vel dignissim. Integer in mauris in.",
+    gallery:['assets/gallery/7_1.jpg','assets/gallery/7_2.jpg','assets/gallery/7_3.jpg']
   },
   {
     id:'8',
-    name:'Salomon sandwitch',
+    name:'Salmon sandwitch',
     price:18,
     tags:['breakfast','lunch','fish'],
     favourite:true,
@@ -97,6 +118,9 @@ export const sample: Food[] = [
     origins:"International",
     cookTime:"15",
     inStock: 8,
+    ingredients:['salmon','bread','lettuce','cheese'],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula velit sit amet elit dictum, quis porttitor nibh efficitur. Donec ultricies vulputate pretium. Aenean in orci a nisi dignissim semper. Nullam vel sagittis sem. Nam posuere nec quam sed semper. Integer vulputate eget lacus vel dignissim. Integer in mauris in.",
+    gallery:['assets/gallery/8_1.jpg','assets/gallery/8_2.jpg','assets/gallery/8_3.jpg']
   },
   {
     id:'9',
@@ -109,6 +133,9 @@ export const sample: Food[] = [
     origins:"Thai",
     cookTime:"25",
     inStock: 15,
+    ingredients:['tofu','oil','soy sauce','garlic','onion','ginger','chili'],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula velit sit amet elit dictum, quis porttitor nibh efficitur. Donec ultricies vulputate pretium. Aenean in orci a nisi dignissim semper. Nullam vel sagittis sem. Nam posuere nec quam sed semper. Integer vulputate eget lacus vel dignissim. Integer in mauris in.",
+    gallery:['assets/gallery/9_1.jpg','assets/gallery/9_2.jpg','assets/gallery/9_3.jpg']
   },
   {
     id:'10',
@@ -121,6 +148,9 @@ export const sample: Food[] = [
     origins:"England",
     cookTime:"35",
     inStock: 15,
+    ingredients:['cod','flour','beer','lemon','eggs','potatoes'],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula velit sit amet elit dictum, quis porttitor nibh efficitur. Donec ultricies vulputate pretium. Aenean in orci a nisi dignissim semper. Nullam vel sagittis sem. Nam posuere nec quam sed semper. Integer vulputate eget lacus vel dignissim. Integer in mauris in.",
+    gallery:['assets/gallery/10_1.jpg','assets/gallery/10_2.jpg','assets/gallery/10_3.jpg']
   },
   {
     id:'11',
@@ -133,6 +163,9 @@ export const sample: Food[] = [
     origins:"Mexico",
     cookTime:"35",
     inStock: 12,
+    ingredients:['veggie mince','red beans','bell peppers', 'carrots', 'celery','tomatoes','chili'],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula velit sit amet elit dictum, quis porttitor nibh efficitur. Donec ultricies vulputate pretium. Aenean in orci a nisi dignissim semper. Nullam vel sagittis sem. Nam posuere nec quam sed semper. Integer vulputate eget lacus vel dignissim. Integer in mauris in.",
+    gallery:['assets/gallery/11_1.jpg','assets/gallery/11_2.jpg','assets/gallery/11_3.jpg']
   },
   {
     id:'12',
@@ -145,6 +178,9 @@ export const sample: Food[] = [
     origins:"India",
     cookTime:"35",
     inStock: 15,
+    ingredients:['chicken','butter','onion','ginger','garlic','almonds'],
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula velit sit amet elit dictum, quis porttitor nibh efficitur. Donec ultricies vulputate pretium. Aenean in orci a nisi dignissim semper. Nullam vel sagittis sem. Nam posuere nec quam sed semper. Integer vulputate eget lacus vel dignissim. Integer in mauris in.",
+    gallery:['assets/gallery/12_1.jpg','assets/gallery/12_2.jpg','assets/gallery/12_3.jpg']
   },
 ]
 
