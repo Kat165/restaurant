@@ -1,38 +1,43 @@
 <app-search></app-search>
 <app-tags></app-tags>
 <ul>
-  <li *ngFor="let food of foods">
-    <a routerLink="/food/{{food.id}}">
-      <img [src]="food.imageUrl" [alt] = "food.name"/>
-      <div class="content">
-        <div class="name">
-          {{food.name | uppercase}}
-        </div>
-        <span class="favourite {{food.favourite?'':'not'}}">&#10084;</span>
-        <div class="stars">
-          <star-rating
-          [value]="food.stars"
-          [totalstars]="5"
-          checkedcolor="red"
-          uncheckedcolor="black"
-          size="22px"
-          [readonly]="true"></star-rating>
-        </div>
-        <div class="product-item-footer">
-          <div class="origins">{{food.origins | uppercase }}
+  <li *ngFor="let food of foods" >
+      <a routerLink="/food/{{food.id}}" [ngClass]="{
+        'color-green':food.price == minprice,
+        'color-red':food.price == maxprice,
+        'color-yellow':food.inStock <= 3
+      }">
+        <img [src]="food.imageUrl" [alt] = "food.name"/>
+        <div class="content">
+          <div class="name">
+            {{food.name | uppercase}}
           </div>
-          <div class="cooktime">⌛ {{food.cookTime}}</div>
-          <div class="price">
-            <span>{{food.price | currency}}</span>
+          <span class="favourite {{food.favourite?'':'not'}}">&#10084;</span>
+          <div class="stars">
+            <star-rating
+            [value]="food.stars"
+            [totalstars]="5"
+            checkedcolor="red"
+            uncheckedcolor="black"
+            size="22px"
+            [readonly]="true"></star-rating>
           </div>
-          <div class="stock">{{food.inStock}}</div>
+          <div class="product-item-footer">
+            <div class="origins">{{food.origins | uppercase }}
+            </div>
+            <div class="cooktime">⌛ {{food.cookTime}}</div>
+            <div class="price">
+              <span>{{food.price | currency}}</span>
+            </div>
+            <div class="stock">{{food.inStock}}</div>
+          </div>
+
         </div>
-        <div class="add-rem">
-          <button class="teal" id="add">&plus;</button>
-          <p class="added">0</p>
-          <button class="teal" id="remove">&minus;</button>
-        </div>
-      </div>
-    </a>
+      </a><!--
+      <div class="add-rem">
+        <button class="teal" id="add" (click)="AddClick(food)" *ngIf="food.inStock > 0">&plus;</button>
+        <p class="added">0</p>
+        <button class="teal" id="remove">&minus;</button>
+      </div>-->
   </li>
 </ul>

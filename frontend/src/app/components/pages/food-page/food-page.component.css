@@ -98,6 +98,18 @@ img{
   color: darkgray;
 }
 
+.add-rem{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: -22rem;
+  right: 8rem;
+}
+.add-rem p{
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
 button{
   color: white;
   background: rgb(90, 4, 40);

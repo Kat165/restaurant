@@ -29,6 +29,11 @@
     <div class="inStock">
       <span>{{food.inStock}}</span>
     </div>
+    <div class="add-rem">
+      <button class="teal" id="add" (click)="addQuant()"  *ngIf="food.inStock > 0">&plus;</button>
+      <p class="added" id="infotext">0</p>
+      <button class="teal" id="remove" (click)="delQuant()">&minus;</button>
+    </div>
     <button (click)="addToCart()">Add to cart</button>
   </div>
 </div>
