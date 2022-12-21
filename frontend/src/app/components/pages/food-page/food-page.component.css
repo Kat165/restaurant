@@ -124,3 +124,8 @@ button:hover{
   opacity: 0.9;
   cursor: pointer;
 }
+
+.ingredients::before{
+  content: "Ingredients: ";
+  color: darkgray;
+}

@@ -5,7 +5,7 @@
       <span class="name">
         {{food.name | uppercase }}
       </span>
-      <span class="favourite {{food.favourite? '':'not'}}">&#10084;</span>
+      <!--<span class="favourite {{food.favourite? '':'not'}}">&#10084;</span>-->
     </div>
     <div class="rating">
       <star-rating
@@ -35,5 +35,7 @@
       <button class="teal" id="remove" (click)="delQuant()">&minus;</button>
     </div>
     <button (click)="addToCart()">Add to cart</button>
+    <div class="description"><h3>Description</h3><span>{{food.description}}</span></div>
+    <div class="ingredients"><span>{{food.ingredients}}</span></div>
   </div>
 </div>
