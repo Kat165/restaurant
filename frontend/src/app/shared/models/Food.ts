@@ -12,4 +12,5 @@ export class Food{
   ingredients!:string[];
   description!:string;
   gallery!:string[];
+  deleted!:boolean;
 }

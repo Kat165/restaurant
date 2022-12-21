@@ -1,12 +1,13 @@
 <app-search></app-search>
 <app-tags></app-tags>
+<app-search-price></app-search-price>
 <ul>
   <li *ngFor="let food of foods" >
       <a routerLink="/food/{{food.id}}" [ngClass]="{
         'color-green':food.price == minprice,
         'color-red':food.price == maxprice,
         'color-yellow':food.inStock <= 3
-      }">
+      }" *ngIf="!food.deleted">
         <img [src]="food.imageUrl" [alt] = "food.name"/>
         <div class="content">
           <div class="name">
@@ -39,5 +40,7 @@
         <p class="added">0</p>
         <button class="teal" id="remove">&minus;</button>
       </div>-->
+    <button (click)="deleteFood(food)"*ngIf="!food.deleted">Delete</button>
+
   </li>
 </ul>

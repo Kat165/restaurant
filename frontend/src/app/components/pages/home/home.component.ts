@@ -25,16 +25,47 @@ export class HomeComponent {
       else
       this.foods = foodService.getAll()
     })
+    this.calcprice()
 
+  }
+
+  calcprice(){
+    this.prices = []
     for (let index = 0; index < this.foods.length; index++) {
-      if(this.foods[index].inStock > 0)
+      if(this.foods[index].inStock > 0 && !this.foods[index].deleted){
+        console.log(this.foods[index])
         this.prices.push(this.foods[index].price)
+      }
       this.quants.set(this.foods[index].id,0)
-      console.log("x")
     }
 
     this.minprice = Math.min.apply(null,this.prices)
     this.maxprice = Math.max.apply(null,this.prices)
+    console.log(this.minprice)
+    console.log(this.maxprice)
+  }
+
+  deleteFood(food:Food){
+    //food.deleted = true
+    for (let index = 0; index < this.foods.length; index++) {
+      if(this.foods[index].id==food.id){
+        this.foods[index].deleted = true
+      }
+    }
+    console.log(this.foods)
+    this.calcprice()/*
+    this.foods.forEach((f,index)=>{
+      if(f.id == food.id){
+        let foods1 = this.foods.slice(0,index)
+        let foods2 = this.foods.slice(index+1)
+        this.foods = foods1.concat(foods2)
+      }
+    })
+    let foods1 = this.foods.slice(0,parseInt(food.id)-1)
+    let foods2 = this.foods.slice(parseInt(food.id))
+    console.log(foods1)
+    console.log(foods2)
+    this.foods = foods1.concat(foods2)*/
   }
 /*
   AddClick(food:Food){

@@ -29,4 +29,11 @@ export class FoodService {
   getFoodById(foodId:string){
     return this.getAll().find(food => food.id == foodId) ?? new Food()
   }
+
+  getFoodByPrice(price1:number,price2:number){
+    return this.getAll().filter((food: { price: number; }) => food.price>=price1 && food.price<=price2)
+  }
+
+
+
 }
