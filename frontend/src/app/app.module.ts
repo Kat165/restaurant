@@ -12,6 +12,7 @@ import { TagsComponent } from './components/partials/tags/tags.component';
 import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
 import { TitleComponent } from './components/partials/title/title.component';
 import { SearchPriceComponent } from './components/partials/search-price/search-price.component';
+import { AddDishComponent } from './components/pages/add-dish/add-dish.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SearchPriceComponent } from './components/partials/search-price/search-
     TagsComponent,
     CartPageComponent,
     TitleComponent,
-    SearchPriceComponent
+    SearchPriceComponent,
+    AddDishComponent
   ],
   imports: [
     BrowserModule,

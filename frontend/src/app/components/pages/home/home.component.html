@@ -1,6 +1,5 @@
 <app-search></app-search>
 <app-tags></app-tags>
-<app-search-price></app-search-price>
 <ul>
   <li *ngFor="let food of foods" >
       <a routerLink="/food/{{food.id}}" [ngClass]="{
@@ -13,7 +12,7 @@
           <div class="name">
             {{food.name | uppercase}}
           </div>
-          <span class="favourite {{food.favourite?'':'not'}}">&#10084;</span>
+          <!--<span class="favourite {{food.favourite?'':'not'}}">&#10084;</span>-->
           <div class="stars">
             <star-rating
             [value]="food.stars"
@@ -26,7 +25,7 @@
           <div class="product-item-footer">
             <div class="origins">{{food.origins | uppercase }}
             </div>
-            <div class="cooktime">⌛ {{food.cookTime}}</div>
+            <!--<div class="cooktime">⌛ {{food.cookTime}}</div>-->
             <div class="price">
               <span>{{food.price | currency}}</span>
             </div>
@@ -44,3 +43,7 @@
 
   </li>
 </ul>
+<button><a routerLink="/add-dish">+</a>
+</button>
+
+<app-search-price></app-search-price>

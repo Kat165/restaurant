@@ -1,1 +1,29 @@
-<p>search-price works!</p>
+<body>
+  <div class="wrapper">
+    <header>
+      <h2>Price range</h2>
+      <p>Use slider or write min max price</p>
+    </header>
+    <div class="price-input">
+      <div class="field">
+        <span>Min</span>
+        <input #l type="number" class="input-min" [value]="minprice">
+      </div>
+      <div class="separator">-</div>
+      <div class="field">
+        <span>Max</span>
+        <input #h type="number" class="input-max" [value]="maxprice">
+      </div>
+      <button (click)="search(l.value,h.value)">Search</button>
+    </div>
+    <div class="slider">
+      <div class="progress"></div>
+    </div>
+      <div class="range-input">
+          <input type="range" class="range-min" min="{{minprice}}" max="{{maxprice}}" value="{{minprice}}">
+          <input type="range" class="range-max" min="{{minprice}}" max="{{maxprice}}" value="{{maxprice}}">
+    </div>
+
+  </div>
+</body>
+

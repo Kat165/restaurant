@@ -22,6 +22,11 @@ export class HomeComponent {
       this.foods = this.foodService.getAllFoodBySearchTerm(params.searchTerm);
       else if(params.tag)
       this.foods = this.foodService.getAllFoodsByTag(params.tag);
+      else if(params.minprice && params.maxprice){
+        console.log("mmmmmmmmmmmmmmmmm")
+        this.foods = this.foodService.getFoodByPrice(params.minprice,params.maxprice)
+
+      }
       else
       this.foods = foodService.getAll()
     })
@@ -33,7 +38,6 @@ export class HomeComponent {
     this.prices = []
     for (let index = 0; index < this.foods.length; index++) {
       if(this.foods[index].inStock > 0 && !this.foods[index].deleted){
-        console.log(this.foods[index])
         this.prices.push(this.foods[index].price)
       }
       this.quants.set(this.foods[index].id,0)
@@ -41,8 +45,6 @@ export class HomeComponent {
 
     this.minprice = Math.min.apply(null,this.prices)
     this.maxprice = Math.max.apply(null,this.prices)
-    console.log(this.minprice)
-    console.log(this.maxprice)
   }
 
   deleteFood(food:Food){
@@ -52,7 +54,6 @@ export class HomeComponent {
         this.foods[index].deleted = true
       }
     }
-    console.log(this.foods)
     this.calcprice()/*
     this.foods.forEach((f,index)=>{
       if(f.id == food.id){
