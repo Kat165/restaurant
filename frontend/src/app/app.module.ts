@@ -13,6 +13,7 @@ import { CartPageComponent } from './components/pages/cart-page/cart-page.compon
 import { TitleComponent } from './components/partials/title/title.component';
 import { SearchPriceComponent } from './components/partials/search-price/search-price.component';
 import { AddDishComponent } from './components/pages/add-dish/add-dish.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,10 +26,11 @@ import { AddDishComponent } from './components/pages/add-dish/add-dish.component
     CartPageComponent,
     TitleComponent,
     SearchPriceComponent,
-    AddDishComponent
+    AddDishComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     RatingModule,
     HttpClientModule

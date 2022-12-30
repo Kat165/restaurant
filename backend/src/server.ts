@@ -1,6 +1,11 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express'
 import cors from 'cors'
-import { sample, sample_tags } from './data';
+import foodRouter from './routers/food.router'
+import { dbConnect } from './configs/database.config';
+dbConnect()
 
 const app = express()
 
@@ -9,31 +14,7 @@ app.use(cors({
     origin:["http://localhost:4200"]
 }));
 
-app.get("/api/foods",(req,res) => {
-    res.send(sample);
-})
-
-app.get("/api/foods/search/:searchTerm",(req,res) => {
-    const searchTerm = req.params.searchTerm;
-    const foods =sample.filter(food => food.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()) || food.origins.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()));
-    res.send(foods);
-})
-
-app.get("/api/foods/tags", (req,res) => {
-    res.send(sample_tags)
-})
-
-app.get("/api/foods/tag/:tagName", (req,res) => {
-    const tagName = req.params.tagName;
-    const foods = sample.filter(food => food.tags?.includes(tagName));
-    res.send(foods)
-})
-
-app.get("/api/foods/:foodId", (req,res) => {
-    const foodId = req.params.foodId
-    const food = sample.find(food => food.id == foodId)
-    res.send(food)
-})
+app.use("/api/foods",foodRouter);
 
 const port = 5000;
 
