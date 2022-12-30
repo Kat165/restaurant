@@ -15,8 +15,11 @@
           </div>
         </li>
         <li>
-          <a routerLink="cart-page">
-            Cart <span *ngIf="cartQuantity">{{cartQuantity}}</span></a>
+          <a routerLink="cart-page" [ngClass]="{
+            'color-blue':cartQuantity>10,
+            'color-orange':cartQuantity<=10
+          }">
+            Cart <span *ngIf="cartQuantity" >{{cartQuantity}}</span></a>
         </li>
       </ul>
     </nav>

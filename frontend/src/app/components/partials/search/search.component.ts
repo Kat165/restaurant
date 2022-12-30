@@ -10,7 +10,6 @@ export class SearchComponent {
   searchTerm = '';
   constructor(activatedRoute:ActivatedRoute, private router:Router){
     activatedRoute.params.subscribe((params) => {
-      console.log(params.searchTerm)
       if(params.searchTerm) this.searchTerm = params.searchTerm;
     })
   }

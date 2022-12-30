@@ -12,6 +12,7 @@ export class HeaderComponent {
     cartService.getCartObserveble().subscribe((newCart) => {
       this.cartQuantity = newCart.totalCount;
     })
+    console.log(this.cartQuantity)
   }
 
 }

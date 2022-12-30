@@ -64,3 +64,11 @@ menu a{
   width: 100%;
   min-width: 8rem;
 }
+
+.color-blue{
+  background: aqua;
+}
+
+.color-orange{
+  background: orange;
+}

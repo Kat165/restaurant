@@ -16,7 +16,9 @@ export class FoodPageComponent {
     private cartService:CartService, private router:Router){
     activatedRoute.params.subscribe((params) => {
       if(params.id)
-      this.food = foodService.getFoodById(params.id)
+      foodService.getFoodById(params.id).subscribe(serverFood =>{
+        this.food = serverFood
+      })
       this.startStock = this.food.inStock
     })
   }
@@ -38,7 +40,6 @@ export class FoodPageComponent {
           x = p.textContent
         y = parseInt(x) + 1;
         p.innerHTML = `${this.startStock - this.food.inStock}`
-
       }
     }
     this.cartService.addToCart(this.food);
@@ -61,8 +62,6 @@ export class FoodPageComponent {
           return
         this.food.inStock++
         p.innerHTML = `${this.startStock - this.food.inStock}`
-
-
       }
     }
     //this.cartService.addToCart(this.food);

@@ -12,7 +12,9 @@ export class AddDishComponent {
   foods:Food[] = []
   constructor(private foodService:FoodService,activatedRoute:ActivatedRoute){
     activatedRoute.params.subscribe((params) =>{
-      this.foods = foodService.getAll()
+      foodService.getAll().subscribe(serverFoods => {
+        this.foods = serverFoods
+      })
     })
   }
 

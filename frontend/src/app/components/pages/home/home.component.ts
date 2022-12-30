@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { firstValueFrom, lastValueFrom, Observable } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
 import { FoodService } from 'src/app/services/food.service';
 import { Food } from 'src/app/shared/models/Food';
@@ -17,24 +18,33 @@ export class HomeComponent {
   quants = new Map<string, number>();
   constructor(private foodService:FoodService,activatedRoute:ActivatedRoute,
     private cartService:CartService, private router:Router){
-    activatedRoute.params.subscribe((params) =>{
+      let foodObservable: Observable<Food[]>
+      activatedRoute.params.subscribe(async (params) =>{
       if(params.searchTerm)
-      this.foods = this.foodService.getAllFoodBySearchTerm(params.searchTerm);
+        foodObservable = this.foodService.getAllFoodBySearchTerm(params.searchTerm);
       else if(params.tag)
-      this.foods = this.foodService.getAllFoodsByTag(params.tag);
-      else if(params.minprice && params.maxprice){
+        foodObservable = this.foodService.getAllFoodsByTag(params.tag);
+      /*else if(params.minprice && params.maxprice){
         console.log("mmmmmmmmmmmmmmmmm")
-        this.foods = this.foodService.getFoodByPrice(params.minprice,params.maxprice)
+        foodObservable = this.foodService.getFoodByPrice(params.minprice,params.maxprice)
 
-      }
+      }*/
       else
-      this.foods = foodService.getAll()
+        foodObservable = foodService.getAll()
+
+      let x =  await lastValueFrom(foodObservable)
+      await firstValueFrom(foodObservable)
+      console.log(x)
+
+      foodObservable.subscribe((serverFoods) => {
+        this.foods = serverFoods
+      })
     })
     this.calcprice()
 
   }
 
-  calcprice(){
+  async calcprice(){
     this.prices = []
     for (let index = 0; index < this.foods.length; index++) {
       if(this.foods[index].inStock > 0 && !this.foods[index].deleted){
@@ -42,6 +52,8 @@ export class HomeComponent {
       }
       this.quants.set(this.foods[index].id,0)
     }
+    console.log(this.prices)
+
 
     this.minprice = Math.min.apply(null,this.prices)
     this.maxprice = Math.max.apply(null,this.prices)
