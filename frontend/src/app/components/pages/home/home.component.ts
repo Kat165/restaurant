@@ -19,7 +19,7 @@ export class HomeComponent {
   constructor(private foodService:FoodService,activatedRoute:ActivatedRoute,
     private cartService:CartService, private router:Router){
       let foodObservable: Observable<Food[]>
-      activatedRoute.params.subscribe(async (params) =>{
+      activatedRoute.params.subscribe( (params) => {
       if(params.searchTerm)
         foodObservable = this.foodService.getAllFoodBySearchTerm(params.searchTerm);
       else if(params.tag)
@@ -32,19 +32,20 @@ export class HomeComponent {
       else
         foodObservable = foodService.getAll()
 
-      let x =  await lastValueFrom(foodObservable)
-      await firstValueFrom(foodObservable)
-      console.log(x)
+      //let x = lastValueFrom(foodObservable)
+      // firstValueFrom(foodObservable)
 
       foodObservable.subscribe((serverFoods) => {
         this.foods = serverFoods
+        console.log("fff")
+        console.log(this.foods)
+        this.calcprice()
       })
     })
-    this.calcprice()
 
   }
 
-  async calcprice(){
+  calcprice(){
     this.prices = []
     for (let index = 0; index < this.foods.length; index++) {
       if(this.foods[index].inStock > 0 && !this.foods[index].deleted){
@@ -52,6 +53,7 @@ export class HomeComponent {
       }
       this.quants.set(this.foods[index].id,0)
     }
+    console.log("prices")
     console.log(this.prices)
 
 
