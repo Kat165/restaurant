@@ -1,11 +1,11 @@
 import { Router } from "express";
 import { sample, sample_tags } from "../data";
-import asynceHandler from "express-async-handler";
+import asyncHandler from "express-async-handler";
 import { FoodModel } from "../models/food.model";
 
 const router = Router()
 
-router.get("/seed",asynceHandler(
+router.get("/seed",asyncHandler(
     async (req,res) => {
         const foodsCount = await FoodModel.countDocuments();
         if(foodsCount>0){
@@ -17,14 +17,14 @@ router.get("/seed",asynceHandler(
     }
 ))
 
-router.get("/",asynceHandler(
+router.get("/",asyncHandler(
     async (req,res) => {
         const foods = await FoodModel.find()
         res.send(foods);
     }
 ))
 
-router.get("/search/:searchTerm",asynceHandler(
+router.get("/search/:searchTerm",asyncHandler(
     async (req,res) => {
         const searchRegex = new RegExp(req.params.searchTerm,'i');
         const foods = await FoodModel.find({name: {$regex:searchRegex}})
@@ -32,7 +32,7 @@ router.get("/search/:searchTerm",asynceHandler(
     }
 ))
 
-router.get("/tags", asynceHandler(
+router.get("/tags", asyncHandler(
     async(req,res) => {
         const tags = await FoodModel.aggregate([
             {
@@ -64,14 +64,14 @@ router.get("/tags", asynceHandler(
     }
 ))
 
-router.get("/tag/:tagName", asynceHandler(
+router.get("/tag/:tagName", asyncHandler(
     async (req,res) => {
         const foods = await FoodModel.find({tags:req.params.tagName})
         res.send(foods)
     }
 ))
 
-router.get("/:foodId", asynceHandler(
+router.get("/:foodId", asyncHandler(
     async (req,res) => {
         const food = await FoodModel.findById(req.params.foodId)
         res.send(food)

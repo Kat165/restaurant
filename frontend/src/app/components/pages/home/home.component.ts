@@ -37,8 +37,6 @@ export class HomeComponent {
 
       foodObservable.subscribe((serverFoods) => {
         this.foods = serverFoods
-        console.log("fff")
-        console.log(this.foods)
         this.calcprice()
       })
     })
@@ -53,8 +51,6 @@ export class HomeComponent {
       }
       this.quants.set(this.foods[index].id,0)
     }
-    console.log("prices")
-    console.log(this.prices)
 
 
     this.minprice = Math.min.apply(null,this.prices)

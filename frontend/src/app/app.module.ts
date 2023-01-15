@@ -14,6 +14,8 @@ import { TitleComponent } from './components/partials/title/title.component';
 import { SearchPriceComponent } from './components/partials/search-price/search-price.component';
 import { AddDishComponent } from './components/pages/add-dish/add-dish.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginPageComponent } from './components/pages/login-page/login-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,13 +29,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TitleComponent,
     SearchPriceComponent,
     AddDishComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     RatingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
