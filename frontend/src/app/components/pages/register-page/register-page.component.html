@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="details">
+    <app-title title="Register"></app-title>
+    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+      <div class="input-container">
+        <label class="input-label">Name</label>
+        <div>
+          <input type="name" placeholder="Name" formControlName="name" class="input-field">
+        </div>
+        <div class="error-list" *ngIf="fc.name.errors && isSubmited">
+          <div *ngIf="fc.name.errors.required">Should not be empty!!!</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <label class="input-label">Email</label>
+        <div>
+          <input type="email" placeholder="Email" formControlName="email" class="input-field">
+        </div>
+        <div class="error-list" *ngIf="fc.email.errors && isSubmited">
+          <div *ngIf="fc.email.errors.required">Should not be empty!!!</div>
+          <div *ngIf="fc.email.errors">Email is not correct!!!</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <label class="input-label" >Password</label>
+        <div>
+          <input type="password" placeholder="Password" formControlName="password" class="input-field">
+        </div>
+        <div class="error-list" *ngIf="fc.password.errors && isSubmited">
+          <div *ngIf="fc.password.errors.required">Should not be empty!!!</div>
+          <div *ngIf="fc.password.errors.minLength">Password is too short!!!</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <label class="input-label">Repeat password</label>
+        <div>
+          <input type="password" placeholder="Password" formControlName="confirmedPassword" class="input-field">
+        </div>
+        <div class="error-list" *ngIf="fc.confirmedPassword.errors && isSubmited">
+          <div *ngIf="fc.confirmedPassword.errors.required">Should not be empty!!!</div>
+          <div *ngIf="fc.confirmedPassword.errors.notMatch">Passwords are different!!!</div>
+        </div>
+      </div>
+      <div class="button">
+        <button type="submit">Register</button>
+      </div>
+
+      <div class="login">
+        Already a user? &nbsp;
+        <a routerLink="/login" [queryParams]="{returnUrl:returnUrl}">Login here</a>
+      </div>
+
+
+    </form>
+  </div>
+</div>

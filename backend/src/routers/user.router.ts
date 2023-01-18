@@ -2,7 +2,9 @@ import { Router } from "express"
 import { sample_users } from "../data"
 import jwt from 'jsonwebtoken';
 import asyncHandler from "express-async-handler";
-import { UserModel } from "../models/user.model";
+import { User, UserModel } from "../models/user.model";
+import { HTTP_BAD_REQUEST } from "../constants/http_status";
+import bcrypt from "bcryptjs"
 
 const router = Router()
 
@@ -18,17 +20,44 @@ router.get("/seed",asyncHandler(
     }
 ))
 
-router.get("/login",(req,res)=>{
-    res.send(sample_users)
-})
+router.get("/login",asyncHandler(async (req,res) => {
+    const users = await UserModel.find()
+    res.send(users);
+}))
 
 router.post("/login",asyncHandler(
     async (req,res) =>{
         const {email, password} = req.body
-        const user = await UserModel.findOne({email,password})
+        const user = await UserModel.findOne({email})
     
-        if(user){res.send(generateTokenResponse(user))}
-        else{res.status(400).send("User email or password is invalid!!!")}
+        if(user && (await bcrypt.compare(password,user.password))){
+            res.send(generateTokenResponse(user))
+        }
+        else{res.status(HTTP_BAD_REQUEST).send("User email or password is invalid!!!")}
+    }
+))
+
+router.post("/register",asyncHandler(
+    async (req,res) =>{
+        const{name,email,password} = req.body
+        const user = await UserModel.findOne({email})
+        if(user){
+            res.status(HTTP_BAD_REQUEST).send("User already exists!!!")
+            return
+        }
+
+        const encryptedPassword = await bcrypt.hash(password,10)
+
+        const newUser:User = {
+            id:'',
+            name:name,
+            email:email.toLowerCase(), //whyyyyyyyy
+            password: encryptedPassword,
+            isAdmin:false 
+        }
+
+        const dbUser = await UserModel.create(newUser)
+        res.send(generateTokenResponse(dbUser))
     }
 ))
 

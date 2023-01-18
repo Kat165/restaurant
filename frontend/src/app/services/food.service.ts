@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { sample, sample_tags } from 'src/data';
-import { FOODS_BY_SEARCH_URL, FOODS_BY_TAG_URL, FOODS_TAGS_URL, FOODS_URL, FOOD_BY_ID_URL } from '../shared/constants/urls';
+import { FOODS_BY_SEARCH_URL, FOODS_BY_TAG_URL, FOODS_TAGS_URL, FOODS_URL, FOOD_ADD_URL, FOOD_BY_ID_URL } from '../shared/constants/urls';
+import { IAddFood } from '../shared/interfaces/IAddFood';
 import { Food } from '../shared/models/Food';
 import { Tag } from '../shared/models/Tag';
 
@@ -39,6 +40,18 @@ export class FoodService {
 */  return 0;
   }
 
+  addDish(foodAdd:IAddFood):Observable<Food>{
+    return this.http.post<Food>(FOOD_ADD_URL,foodAdd).pipe(
+      tap({
+        next: (food) =>{
 
+          alert(`Added food ${food.name}!`)
+        },
+        error: (errorResponse) =>{
+          alert(`${errorResponse.error} - adding failed!`)
+        }
+      })
+    )
+  }
 
 }

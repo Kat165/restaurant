@@ -1,10 +1,94 @@
 .container{
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  align-content: space-around;
-  padding: 1rem;
+  height: 92.5vh;
+  background: rgb(66,23,183);
+  background: linear-gradient(228deg, rgba(66,23,183,1) 31%, rgba(90,4,40,1) 80%);
+  margin-bottom: 0;
 }
-div{
-  padding: 1rem;
+
+.details{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 28rem;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 2rem;
+
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input-container {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+
+.input-field {
+  font-family: inherit;
+  width: 20rem;
+  border: 0;
+  border-bottom: 2px solid gray;
+  outline: 0;
+  font-size: 1rem;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+}
+
+.input-label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 0.8rem;
+  color: lightgray;
+}
+
+.input-field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, rgb(66, 23, 183),rgb(90, 4, 40));
+  border-image-slice: 1;
+}
+
+.input-field:focus ~.input-label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: rgb(66, 23, 183);
+  font-weight:700;
+}
+
+button{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: lightgrey;
+  background: linear-gradient(to right, rgb(66, 23, 183),rgb(90, 4, 40));
+  border: none;
+  border-radius: 10rem;
+  outline: none;
+  height: 2rem;
+  width: 20rem;
+  font-size: 1.5rem;
+}
+
+button:hover{
+  opacity: 0.9;
+  cursor: pointer;
 }

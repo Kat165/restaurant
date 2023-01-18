@@ -1,11 +1,11 @@
 <div class="container">
   <div class="details">
-    <app-title title="Login"></app-title>
+    <app-title fontSize="2.3rem" title="Login"></app-title>
     <form [formGroup]="loginForm" (ngSubmit)="submit()">
       <div class="input-container">
-        <label >Email</label>
+        <label class="input-label">Email</label>
         <div>
-          <input type="email" placeholder="Email" formControlName="email">
+          <input type="email" placeholder="Email" formControlName="email" class="input-field">
         </div>
         <div class="error-list" *ngIf="fc.email.errors && isSubmited">
           <div *ngIf="fc.email.errors.required">Should not be empty!!!</div>
@@ -13,9 +13,9 @@
         </div>
       </div>
       <div class="input-container">
-        <label >Password</label>
+        <label class="input-label">Password</label>
         <div>
-          <input type="password" placeholder="Password" formControlName="password">
+          <input type="password" placeholder="Password" formControlName="password" class="input-field">
         </div>
         <div class="error-list" *ngIf="fc.password.errors && isSubmited">
           <div *ngIf="fc.password.errors.required">Should not be empty!!!</div>
@@ -23,6 +23,11 @@
       </div>
       <div class="button">
         <button type="submit">Login</button>
+      </div>
+
+      <div class="register">
+        New user? &nbsp;
+        <a routerLink="/register" [queryParams]="{returnUrl:returnUrl}">Register here</a>
       </div>
     </form>
   </div>

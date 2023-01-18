@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
   <div>
     <label for="name">Name</label>
     <input type="text" id="name">
@@ -28,4 +28,64 @@
     <input type="text" id="desc">
   </div>
   <button (click)="AddFood()">Add</button>
+</div>-->
+
+<div class="container">
+  <div class="details">
+    <app-title fontSize="2.3rem" title="AddDish"></app-title>
+    <form [formGroup]="addDishForm" (ngSubmit)="submit()">
+      <div class="input-container">
+        <label class="input-label">Name</label>
+        <div>
+          <input type="name" placeholder="Name" formControlName="name" class="input-field">
+        </div>
+      </div>
+      <div class="input-container">
+        <label class="input-label">Price</label>
+        <div >
+          <input type="number" placeholder="Price" formControlName="price" class="input-field">
+        </div>
+      </div>
+      <div class="input-container">
+        <label class="input-label">Tags</label>
+        <div >
+          <input type="text" placeholder="Tags" formControlName="tags" class="input-field">
+        </div>
+      </div>
+      <div class="input-container">
+        <label class="input-label">Origins</label>
+        <div>
+          <input type="text" placeholder="Origins" formControlName="origins" class="input-field">
+        </div>
+      </div>
+      <div class="input-container">
+        <label class="input-label">In stock</label>
+        <div>
+          <input type="number" placeholder="In stock" formControlName="inStock" class="input-field">
+        </div>
+      </div>
+      <div class="input-container">
+        <label class="input-label">Ingredients</label>
+        <div>
+          <input type="text" placeholder="Ingredients" formControlName="ingredients" class="input-field">
+        </div>
+      </div>
+      <div class="input-container">
+        <label class="input-label">Description</label>
+        <div>
+          <input type="text" placeholder="Description" formControlName="description" class="input-field">
+        </div>
+      </div>
+      <div class="input-container">
+        <label class="input-label">Photo</label>
+        <div>
+          <input type="file" class="file-input" formControlName="imageUrl" class="input-field">
+
+        </div>
+      </div>
+      <div class="button">
+        <button type="submit">Add</button>
+      </div>
+    </form>
+  </div>
 </div>

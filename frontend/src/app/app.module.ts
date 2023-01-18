@@ -16,6 +16,7 @@ import { AddDishComponent } from './components/pages/add-dish/add-dish.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SearchPriceComponent,
     AddDishComponent,
     LoginPageComponent,
+    RegisterPageComponent,
   ],
   imports: [
     BrowserModule,

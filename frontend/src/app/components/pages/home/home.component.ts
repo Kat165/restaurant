@@ -15,6 +15,7 @@ export class HomeComponent {
   minprice:number = 0
   maxprice:number = 0
   prices:number[] = []
+  added:number = 0
   quants = new Map<string, number>();
   constructor(private foodService:FoodService,activatedRoute:ActivatedRoute,
     private cartService:CartService, private router:Router){
@@ -78,7 +79,7 @@ export class HomeComponent {
     console.log(foods2)
     this.foods = foods1.concat(foods2)*/
   }
-/*
+
   AddClick(food:Food){
     if(food.inStock>0){
       food.inStock--
@@ -94,6 +95,26 @@ export class HomeComponent {
       this.cartService.changeQuantity(food.id, m)
 
       console.log(this.quants)
+      this.added++
     }
-  }*/
+  }
+
+  MinClick(food:Food){
+    if(this.added>0){
+      food.inStock++
+      this.cartService.removeFromCart(food.id)
+      let idd = food.id
+      let q = this.quants.get(food.id)
+      console.log(q)
+      if(!q)
+        q = 0
+      let m = q-1
+      this.quants.set(food.id,m)
+      console.log(this.quants.get(food.id))
+      this.cartService.changeQuantity(food.id, m)
+
+      console.log(this.quants)
+      this.added--
+    }
+  }
 }

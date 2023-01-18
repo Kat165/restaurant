@@ -7,7 +7,7 @@ export interface Food{
     tags:string[];
     favourite:boolean;
     stars:number;
-    imageUrl:string;
+    imageUrl?:string;
     origins:string;
     cookTime:string;
     inStock:number;
@@ -28,7 +28,7 @@ export const FoodSchema = new Schema<Food>(
         origins:{type: String, required:true},
         cookTime:{type: String, required:true},
         inStock:{type: Number, required:true},
-        ingredients:{type: [String], required:true},
+        ingredients:{type: [String]},
         description:{type: String, required:true},
         gallery:{type: [String], required:true},
         deleted:{type: Boolean, default:false},

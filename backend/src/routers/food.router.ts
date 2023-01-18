@@ -1,9 +1,21 @@
 import { Router } from "express";
 import { sample, sample_tags } from "../data";
 import asyncHandler from "express-async-handler";
-import { FoodModel } from "../models/food.model";
+import { Food, FoodModel } from "../models/food.model";
+import jwt from 'jsonwebtoken';
+import multer from 'multer';
 
-const router = Router()
+const router = Router()/*
+const storage = multer.diskStorage({
+    destination:function(req,file,cb){
+        cb(null,'../../../frontend/src/assets/')
+    },
+    filename:function(req,file,cb){
+        cb(null,new Date().toISOString() + file.originalname)
+
+    }
+})
+const upload = multer({storage:storage})*/
 
 router.get("/seed",asyncHandler(
     async (req,res) => {
@@ -77,5 +89,48 @@ router.get("/:foodId", asyncHandler(
         res.send(food)
     }
 ))
+
+
+
+router.post("/add"/*,upload.single("imageUrl")*/,asyncHandler(
+    async (req,res) =>{
+        const{name,price,tags,origins,inStock,ingredients,description,imageUrl} = req.body
+        console.log(tags)
+        console.log(ingredients)
+        
+
+        const newFood:Food = {
+            id:'',
+            name:name,
+            price:price,
+            origins:origins,
+            inStock:inStock,
+            ingredients:ingredients,
+            description:description,
+            imageUrl:imageUrl,
+            favourite:false,
+            stars:0,
+            cookTime:"0",
+            deleted:false,
+            gallery:[],
+            tags:tags
+        }
+
+        const dbfood = await FoodModel.create(newFood)
+        res.send(dbfood)
+    }
+))
+
+const generateTokenResponse = (user:any)=>{
+    const token = jwt.sign(
+        {email:user.email,isAdmin:user.isAdmin},
+        "TEXT_cccccccccccc",
+        {expiresIn:"30d"}
+    )
+
+    user.token = token
+    return user
+}
+
 
 export default router;

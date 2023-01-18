@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FoodService } from 'src/app/services/food.service';
-import { Food } from 'src/app/shared/models/Food';
+import { IAddFood } from 'src/app/shared/interfaces/IAddFood';
+//import fs from 'fs;'
 
 @Component({
   selector: 'app-add-dish',
@@ -9,6 +11,7 @@ import { Food } from 'src/app/shared/models/Food';
   styleUrls: ['./add-dish.component.css']
 })
 export class AddDishComponent {
+  /*
   foods:Food[] = []
   constructor(private foodService:FoodService,activatedRoute:ActivatedRoute){
     activatedRoute.params.subscribe((params) =>{
@@ -55,5 +58,66 @@ export class AddDishComponent {
     parseInt(stock),ingtab,desc,[''],false)
     this.foods.push(dish)
     console.log(this.foods)
+  }*/
+  addDishForm!:FormGroup;
+  isSubmited = false;
+
+  returnUrl = ''
+
+  constructor(
+    private formBuilder:FormBuilder,
+    private foodService:FoodService,
+    private activatedRoute:ActivatedRoute,
+    private router:Router
+  ){}
+
+  ngOnInit(){
+    this.addDishForm = this.formBuilder.group({
+      name:['',Validators.required],
+      price:['',Validators.required],
+      tags:['',Validators.required],
+      origins:['',Validators.required],
+      inStock:['',Validators.required],
+      ingredients:['',Validators.required],
+      description:['',Validators.required],
+      imageUrl:['',Validators.required]
+
+    });
+
+    this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl
+  }
+
+  get fc(){
+    return this.addDishForm.controls
+  }
+
+  submit(){
+    this.isSubmited = true
+    if(this.addDishForm.invalid) return
+
+    const fv = this.addDishForm.value;
+    let tagstab = fv.tags.split(",");
+    let ingtab = fv.ingredients.split(",")
+    console.log(fv.imageUrl)
+    console.log(fv.imageUrl.substring(11))
+    let m = fv.imageUrl.substring(11)
+    let g = 'assets'+m
+
+    const food:IAddFood = {
+      name: fv.name,
+      price:fv.price,
+      tags:tagstab,
+      origins:fv.origins,
+      inStock:fv.inStock,
+      ingredients:ingtab,
+      description:fv.description,
+      imageUrl:g
+
+    }
+
+    this.foodService.addDish(food).subscribe(_ =>{
+      this.router.navigateByUrl(this.returnUrl)
+    })
+
   }
 }

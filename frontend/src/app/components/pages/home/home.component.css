@@ -1,3 +1,5 @@
+
+
 ul{
   display: flex;
   justify-content: center;
@@ -5,14 +7,25 @@ ul{
   flex-wrap: wrap;
   list-style-type: none;
   padding: 0;
+  background-color: white;
+}
+
+li{
+  display: flex;
+  flex-direction: column;
+
+
 }
 
 li a{
-  height: 22rem;
+  height: 12rem;
   width: 20rem;
   border: 1px solid whitesmoke;
-  border-radius: 1rem;
-  margin: 0.5rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  margin-top: 0.5rem;
+  margin-left: 0.5;
+  margin-right: 0.5;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -30,10 +43,16 @@ li a img{
 }
 
 .content{
-  margin-top: 0.3rem;
-  padding:  0.5rem 1rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
   position: relative;
   height: 9rem;
+  width: 20rem;
+  padding: 0.3rem 1rem;
+  border: 1px solid whitesmoke;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background-color: lightgray;
 }
 
 .favourite{
@@ -57,19 +76,21 @@ li a img{
   justify-content: space-between;
   align-items: flex-start;
 }
-
-.add-rem{
-  background-color: antiquewhite;
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  bottom: 80px;
-}
-
 .teal{
   height: 20px;
   align-self: center;
 }*/
+.add-rem{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.3rem;
+  position: absolute;
+  right: 0.3rem;
+  bottom: 0.3rem;
+}
+
+
 
 .color-green{
   background-color: aquamarine;
@@ -81,5 +102,41 @@ li a img{
 
 .color-yellow{
   background-color: yellow;
+}
+
+button{
+  color: white;
+  background: rgb(90, 4, 40);
+  border: none;
+  border-radius: 10rem;
+  outline: none;
+  height: 1.5rem;
+}
+
+button:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.addBtn{
+
+  display:flex;
+  background: rgb(90, 4, 40);
+  border: none;
+  font-size: 3rem;
+  padding: 1rem;
+  border-radius: 50%;
+  outline: none;
+  height: 4rem;
+  width: 4rem;
+  align-items: center;
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+}
+.addBtn a{
+  color: white;
+  align-self: center;
+
 }
 
