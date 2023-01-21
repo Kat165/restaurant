@@ -1,6 +1,6 @@
 import { Food } from "./app/shared/models/Food";
 import { Tag } from "./app/shared/models/Tag";
-
+/*
 export const sample: Food[] = [
   {
     id:'1',
@@ -208,4 +208,4 @@ export const sample_tags:Tag[] = [
   {name:'fish',count:3},
   {name:'breakfast',count:1},
   {name:'vegan',count:1},
-]
+]*/

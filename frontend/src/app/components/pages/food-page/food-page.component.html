@@ -1,4 +1,5 @@
 <div class="container">
+  <div class="foodinfo">
   <img [src]="food.imageUrl" [alt]="food.name">
   <div class="details">
     <div class="header">
@@ -23,19 +24,65 @@
     <div class="tags">
       <a *ngFor="let tag of food.tags" routerLink="/tag/{{tag}}">{{tag}}</a>
     </div>
+    <div class = "idk">
+      <div class="col-8">
     <div class="price">
       <span>{{food.price | currency}}</span>
     </div>
     <div class="inStock">
       <span>{{food.inStock}}</span>
+    </div></div>
+    <div class="col-4">
+      <div class="add-rem">
+        <button class="teal" id="add" (click)="addQuant()"  *ngIf="food.inStock > 0">&plus;</button>
+        <p class="added" id="infotext">{{food.reserved}}</p>
+        <button class="teal" id="remove" (click)="delQuant()">&minus;</button>
+      </div>
     </div>
-    <div class="add-rem">
-      <button class="teal" id="add" (click)="addQuant()"  *ngIf="food.inStock > 0">&plus;</button>
-      <p class="added" id="infotext">0</p>
-      <button class="teal" id="remove" (click)="delQuant()">&minus;</button>
+
     </div>
-    <button (click)="addToCart()">Add to cart</button>
+    <button class="addToCart" (click)="addToCart()">Add to cart</button>
     <div class="description"><h3>Description</h3><span>{{food.description}}</span></div>
     <div class="ingredients"><span>{{food.ingredients}}</span></div>
+    <div class="go">
+      <button class="goBack" routerLink="/menu">&#8617;</button>
+    </div>
   </div>
+</div>
+
+  <div class="ops">
+    <form [formGroup]="opinionsForm" (ngSubmit)="submit()">
+      <app-title fontSize="2.3rem" title="Add opinion"></app-title>
+      <div class="input-container">
+        <label class="input-label">Title</label>
+        <div>
+          <input type="name" placeholder="Title" formControlName="name" class="input-field">
+        </div>
+        <div class="error-list" *ngIf="fc.name.errors && isSubmited">
+          <div *ngIf="fc.name.errors.required">Should not be empty!!!</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <label class="input-label">Description</label>
+        <div>
+          <textarea placeholder="Description" formControlName="description" class="input-field"></textarea>
+        </div>
+      </div>
+      <div class="button">
+        <button type="submit">+</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="ops2">
+    <ul>
+      <app-title fontSize="2.3rem" title="Opinie:"></app-title>
+      <li *ngFor="let op of opss">
+        <p>Nick: {{op.nick}}</p>
+        <p>Title: {{op.name}}</p>
+        <p>Description: {{op.description}}</p>
+      </li>
+    </ul>
+  </div>
+
 </div>

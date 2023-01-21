@@ -12,7 +12,7 @@ export class LoginPageComponent {
   loginForm!:FormGroup
   isSubmited = false
 
-  returnUrl = ''
+  returnUrl = '/menu'
 
   constructor(private formBuilder:FormBuilder,
     private userService:UserService,
@@ -26,7 +26,7 @@ export class LoginPageComponent {
       password:['',[Validators.required]]
     })
 
-    this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl
+    //this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl
 
   }
 

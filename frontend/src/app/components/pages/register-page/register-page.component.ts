@@ -14,7 +14,7 @@ export class RegisterPageComponent {
   registerForm!:FormGroup;
   isSubmited = false;
 
-  returnUrl = ''
+  returnUrl = '/menu'
 
   constructor(
     private formBuilder:FormBuilder,
@@ -33,7 +33,7 @@ export class RegisterPageComponent {
       validators:PasswordsMatchValidator('password','confirmedPassword')
     });
 
-    this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl
+    //this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl
   }
 
   get fc(){

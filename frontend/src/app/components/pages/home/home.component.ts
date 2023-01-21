@@ -84,37 +84,23 @@ export class HomeComponent {
     if(food.inStock>0){
       food.inStock--
       this.cartService.addToCart(food);
-      let idd = food.id
-      let q = this.quants.get(food.id)
-      console.log(q)
-      if(!q)
-        q = 0
-      let m = q+1
-      this.quants.set(food.id,m)
-      console.log(this.quants.get(food.id))
-      this.cartService.changeQuantity(food.id, m)
-
-      console.log(this.quants)
-      this.added++
+      food.reserved++
+      //this.quants.set(food.id,m)
+      //console.log(this.quants.get(food.id))
+      this.cartService.changeQuantity(food.id, food.reserved)
+      this.foodService.uptadeReserved(food.id,food.reserved)
     }
   }
 
   MinClick(food:Food){
-    if(this.added>0){
+    if(food.reserved>0){
       food.inStock++
-      this.cartService.removeFromCart(food.id)
-      let idd = food.id
-      let q = this.quants.get(food.id)
-      console.log(q)
-      if(!q)
-        q = 0
-      let m = q-1
-      this.quants.set(food.id,m)
-      console.log(this.quants.get(food.id))
-      this.cartService.changeQuantity(food.id, m)
-
-      console.log(this.quants)
-      this.added--
+      food.reserved--
+      this.cartService.changeQuantity(food.id, food.reserved)
+      this.foodService.uptadeReserved(food.id,food.reserved)
+      if(food.reserved == 0){
+        this.cartService.removeFromCart(food.id)
+      }
     }
   }
 }

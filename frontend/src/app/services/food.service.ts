@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { sample, sample_tags } from 'src/data';
-import { FOODS_BY_SEARCH_URL, FOODS_BY_TAG_URL, FOODS_TAGS_URL, FOODS_URL, FOOD_ADD_URL, FOOD_BY_ID_URL } from '../shared/constants/urls';
+import { FOODS_BY_SEARCH_URL, FOODS_BY_TAG_URL, FOODS_TAGS_URL, FOODS_URL, FOOD_ADD_OPINION_URL, FOOD_ADD_URL, FOOD_BY_ID_URL, OPINION_BY_FOOD_URL, UPDATE_FOOD_RESERVED } from '../shared/constants/urls';
 import { IAddFood } from '../shared/interfaces/IAddFood';
+import { IOpinions } from '../shared/interfaces/IOpinions';
 import { Food } from '../shared/models/Food';
+import { Opinion } from '../shared/models/Opinion';
 import { Tag } from '../shared/models/Tag';
 
 @Injectable({
@@ -52,6 +53,27 @@ export class FoodService {
         }
       })
     )
+  }
+
+  addOpinion(opinion:IOpinions):Observable<Opinion>{
+    return this.http.post<Opinion>(FOOD_ADD_OPINION_URL,opinion).pipe(
+      tap({
+        next:(op)=>{
+          alert(`Added new opinion`)
+        },
+        error: (errorResponse) =>{
+          alert(`${errorResponse.error} - adding failed!`)
+        }
+      })
+    )
+  }
+
+  getOpinion(foodId:string):Observable<Opinion[]>{
+    return this.http.get<Opinion[]>(OPINION_BY_FOOD_URL+foodId)
+  }
+
+  uptadeReserved(foodId:string, reserved:number){
+    return this.http.put(UPDATE_FOOD_RESERVED,[foodId,reserved],)
   }
 
 }

@@ -11,6 +11,7 @@ export interface Food{
     origins:string;
     cookTime:string;
     inStock:number;
+    reserved:number;
     ingredients:string[];
     description:string;
     gallery:string[];
@@ -28,6 +29,7 @@ export const FoodSchema = new Schema<Food>(
         origins:{type: String, required:true},
         cookTime:{type: String, required:true},
         inStock:{type: Number, required:true},
+        reserved:{type:Number},
         ingredients:{type: [String]},
         description:{type: String, required:true},
         gallery:{type: [String], required:true},

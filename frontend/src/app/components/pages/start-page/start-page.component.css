@@ -1,0 +1,47 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 92.5vh;
+  background-image: url("src\\assets\\backphoto.jpg");
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.kontakt_i_mapa{
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 2rem;
+}
+
+.mapa{
+  height: 20rem;
+  padding: 2rem;
+}
+
+.kontakt p{
+  font-size: 1.5rem;
+}
+
+button{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: white;
+  background: linear-gradient(to right, rgb(66, 23, 183),rgb(90, 4, 40));
+  border: none;
+  border-radius: 10rem;
+  outline: none;
+  height: 2rem;
+  width: 17rem;
+  font-size: 1.5rem;
+}
+
+button:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}

@@ -4,6 +4,7 @@ import asyncHandler from "express-async-handler";
 import { Food, FoodModel } from "../models/food.model";
 import jwt from 'jsonwebtoken';
 import multer from 'multer';
+import { Opinion, OpinionModel } from "../models/opinion.model";
 
 const router = Router()/*
 const storage = multer.diskStorage({
@@ -95,8 +96,6 @@ router.get("/:foodId", asyncHandler(
 router.post("/add"/*,upload.single("imageUrl")*/,asyncHandler(
     async (req,res) =>{
         const{name,price,tags,origins,inStock,ingredients,description,imageUrl} = req.body
-        console.log(tags)
-        console.log(ingredients)
         
 
         const newFood:Food = {
@@ -105,6 +104,7 @@ router.post("/add"/*,upload.single("imageUrl")*/,asyncHandler(
             price:price,
             origins:origins,
             inStock:inStock,
+            reserved:0,
             ingredients:ingredients,
             description:description,
             imageUrl:imageUrl,
@@ -118,6 +118,39 @@ router.post("/add"/*,upload.single("imageUrl")*/,asyncHandler(
 
         const dbfood = await FoodModel.create(newFood)
         res.send(dbfood)
+    }
+))
+
+router.post("/addOpinion",asyncHandler(
+    async(req,res)=>{
+        const{foodId,nick,name,description} = req.body
+
+        const newOp:Opinion = {
+            id:'',
+            foodId:foodId,
+            nick:nick,
+            name:name,
+            description:description
+        }
+        const dbop = await OpinionModel.create(newOp)
+        res.send(dbop)
+    }
+))
+
+router.get("/opinion/:foodId", asyncHandler(
+    async (req,res) => {
+        const opinions = await OpinionModel.find({foodId:req.params.foodId})
+        res.send(opinions)
+    }
+))
+
+router.put("/update", asyncHandler(
+    async(req,res) =>{
+        console.log("mmm")
+        const food = await FoodModel.findById(req.params.foodId)
+        if(food != undefined)
+            food.reserved = parseInt(req.params.reserved)
+        res.send(food)
     }
 ))
 

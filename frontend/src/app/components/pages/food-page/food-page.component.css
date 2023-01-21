@@ -3,19 +3,29 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin: 3rem;
+  margin: 1rem;
+  flex-direction: column;
 }
 
-.container > *{
+.foodinfo > *{
   min-width: 25rem;
   max-width: 40rem;
+}
+
+
+.foodinfo{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 img{
   border-radius: 3rem;
   flex: 1 0;
   object-fit: cover;
-  height: 35rem;
+  height: 40rem;
   margin: 1rem;
 }
 
@@ -101,13 +111,31 @@ img{
 .add-rem{
   display: flex;
   flex-direction: row;
-  position: absolute;
-  bottom: -22rem;
-  right: 8rem;
+  margin-bottom: 1rem;
 }
-.add-rem p{
-  font-size: 1.2rem;
-  padding: 0.5rem;
+.go{
+  width: 2rem;
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+
+  display:flex;
+  justify-content: flex-end;
+  align-items:flex-end;
+}
+.goBack{
+  display:flex;
+  background: rgb(90, 4, 40);
+  border: none;
+  font-size: 3rem;
+  padding: 1rem;
+  border-radius: 50%;
+  outline: none;
+  height: 4rem;
+  width: 4rem;
+  align-items: center;
+
+
 }
 
 button{
@@ -128,4 +156,108 @@ button:hover{
 .ingredients::before{
   content: "Ingredients: ";
   color: darkgray;
+}
+
+
+.ops{
+  width: 28rem;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: white;
+  border-radius: 2rem;
+}
+
+
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input-container {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.input-field {
+  font-family: inherit;
+  width: 20rem;
+  border: 0;
+  border-bottom: 2px solid gray;
+  outline: 0;
+  font-size: 1rem;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+}
+
+.input-label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 0.8rem;
+  color: lightgray;
+}
+
+.input-field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, rgb(14, 108, 207),rgb(243, 81, 148));
+  border-image-slice: 1;
+}
+
+.input-field:focus ~.input-label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: rgb(66, 23, 183);
+  font-weight:700;
+}
+.ops button{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: lightgrey;
+  background: rgb(90, 4, 40);
+  border: none;
+  border-radius: 10rem;
+  outline: none;
+  height: 3rem;
+  width: 20rem;
+  font-size: 1.5rem;
+}
+
+.ops2{
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.ops2 >*{
+  min-width: 40rem;
+  max-width: 80rem;
+}
+
+ul{
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+li{
+  border: 2px solid rgb(90, 4, 40);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem;
 }

@@ -9,6 +9,7 @@ export class Food{
   origins!:string;
   cookTime!:string;
   inStock!:number;
+  reserved!:number;
   ingredients!:string[];
   description!:string;
   gallery!:string[];

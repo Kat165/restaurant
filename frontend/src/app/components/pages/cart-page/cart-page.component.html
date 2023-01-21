@@ -9,6 +9,9 @@
       <div>
         <a routerLink="/food/{{cartItem.food.id}}">{{cartItem.food.name}}</a>
       </div>
+      <div>
+        <p>x {{cartItem.food.reserved}}</p>
+      </div>
       <!---<div>
         <select #quantitySelect
         [value]="cartItem.quantity"

@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
+import { StartPageComponent } from './components/pages/start-page/start-page.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { RegisterPageComponent } from './components/pages/register-page/register
     AddDishComponent,
     LoginPageComponent,
     RegisterPageComponent,
+    StartPageComponent,
   ],
   imports: [
     BrowserModule,
