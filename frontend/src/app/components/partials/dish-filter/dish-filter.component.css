@@ -1,0 +1,47 @@
+.filters{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+li {
+  list-style-type: none;
+}
+
+.star {
+  font-size: 20px;
+  color: rgb(66, 23, 183);
+}
+
+.empty {
+  color:#dddddd;
+}
+
+.container {
+  display: flex;
+  max-width: 100vw;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  column-gap: 2rem;
+}
+
+app-title{
+  align-self: center;
+  justify-self: center;
+}
+
+button{
+  color: white;
+  background: rgb(90, 4, 40);
+  border: none;
+  border-radius: 10rem;
+  outline: none;
+  height: 1.5rem;
+  margin: 2rem;
+}
+
+button:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}

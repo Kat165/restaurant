@@ -11,7 +11,7 @@ import { User } from 'src/app/shared/models/User';
 export class HeaderComponent {
   cartQuantity=0;
   user!:User
-  constructor(cartService:CartService, private userService:UserService){
+  constructor(private cartService:CartService, private userService:UserService){
     cartService.getCartObserveble().subscribe((newCart) => {
       this.cartQuantity = newCart.totalCount;
     })
@@ -21,6 +21,7 @@ export class HeaderComponent {
   }
 
   logout(){
+    this.cartService.clearCart()
     this.userService.logout()
   }
 

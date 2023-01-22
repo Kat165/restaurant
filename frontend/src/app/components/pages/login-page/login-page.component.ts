@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class LoginPageComponent {
   constructor(private formBuilder:FormBuilder,
     private userService:UserService,
     private activatedRoute:ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private cartService:CartService
     ){}
 
   ngOnInit():void{
@@ -41,5 +43,7 @@ export class LoginPageComponent {
     this.userService.login({email:this.fc.email.value, password:this.fc.password.value}).subscribe(()=>{
       this.router.navigateByUrl(this.returnUrl)
     })
+
+    this.cartService.clearCart()
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 import { UserService } from 'src/app/services/user.service';
 import { IUserRegister } from 'src/app/shared/interfaces/IUserRegister';
 import { PasswordsMatchValidator } from 'src/app/shared/validators/password_match_validator';
@@ -20,7 +21,8 @@ export class RegisterPageComponent {
     private formBuilder:FormBuilder,
     private userService:UserService,
     private activatedRoute:ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private cartService:CartService
   ){}
 
   ngOnInit(){
@@ -56,6 +58,8 @@ export class RegisterPageComponent {
     this.userService.register(user).subscribe(_ =>{
       this.router.navigateByUrl(this.returnUrl)
     })
+
+    this.cartService.clearCart()
   }
 
 }

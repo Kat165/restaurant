@@ -18,6 +18,7 @@ import { LoginPageComponent } from './components/pages/login-page/login-page.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { StartPageComponent } from './components/pages/start-page/start-page.component';
+import { DishFilterComponent } from './components/partials/dish-filter/dish-filter.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { StartPageComponent } from './components/pages/start-page/start-page.com
     LoginPageComponent,
     RegisterPageComponent,
     StartPageComponent,
+    DishFilterComponent,
   ],
   imports: [
     BrowserModule,

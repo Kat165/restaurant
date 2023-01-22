@@ -50,7 +50,7 @@
   </div>
 </div>
 
-  <div class="ops">
+  <div class="ops" *ngIf="user.name">
     <form [formGroup]="opinionsForm" (ngSubmit)="submit()">
       <app-title fontSize="2.3rem" title="Add opinion"></app-title>
       <div class="input-container">
