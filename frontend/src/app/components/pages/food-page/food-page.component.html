@@ -33,7 +33,7 @@
       <span>{{food.inStock}}</span>
     </div></div>
     <div class="col-4">
-      <div class="add-rem">
+      <div class="add-rem" *ngIf="user.name">
         <button class="teal" id="add" (click)="addQuant()"  *ngIf="food.inStock > 0">&plus;</button>
         <p class="added" id="infotext">{{food.reserved}}</p>
         <button class="teal" id="remove" (click)="delQuant()">&minus;</button>
@@ -41,7 +41,7 @@
     </div>
 
     </div>
-    <button class="addToCart" (click)="addToCart()">Add to cart</button>
+    <button class="addToCart" (click)="addToCart()" *ngIf="user.name">Add to cart</button>
     <div class="description"><h3>Description</h3><span>{{food.description}}</span></div>
     <div class="ingredients"><span>{{food.ingredients}}</span></div>
     <div class="go">

@@ -42,7 +42,7 @@
             <div class="stock">{{food.inStock}}</div>
           </div>
           <button (click)="deleteFood(food)"*ngIf="user.isAdmin">Delete</button>
-          <div class="add-rem">
+          <div class="add-rem" *ngIf="user.name">
             <button class="teal" id="add" (click)="AddClick(food)">&plus;</button>
             <p class="added">{{food.reserved}}</p>
             <button class="teal" id="remove" (click)="MinClick(food)">&minus;</button>
