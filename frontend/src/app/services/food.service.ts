@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { FOODS_BY_SEARCH_URL, FOODS_BY_TAG_URL, FOODS_TAGS_URL, FOODS_URL, FOOD_ADD_OPINION_URL, FOOD_ADD_URL, FOOD_BY_ID_URL, OPINION_BY_FOOD_URL, UPDATE_FOOD_RESERVED } from '../shared/constants/urls';
+import { DELETE_FOOD_BY_ID, FOODS_BY_SEARCH_URL, FOODS_BY_TAG_URL, FOODS_TAGS_URL, FOODS_URL, FOOD_ADD_OPINION_URL, FOOD_ADD_URL, FOOD_BY_ID_URL, OPINION_BY_FOOD_URL, UPDATE_FOOD_RESERVED } from '../shared/constants/urls';
 import { IAddFood } from '../shared/interfaces/IAddFood';
 import { IOpinions } from '../shared/interfaces/IOpinions';
 import { Food } from '../shared/models/Food';
@@ -73,7 +73,12 @@ export class FoodService {
   }
 
   uptadeReserved(foodId:string, reserved:number){
-    return this.http.put(UPDATE_FOOD_RESERVED,[foodId,reserved],)
+    return this.http.patch<Food>(UPDATE_FOOD_RESERVED,foodId)
+  }
+
+  deleteById(foodId:string){
+    console.log(DELETE_FOOD_BY_ID+foodId)
+    return this.http.delete<Food>(DELETE_FOOD_BY_ID+foodId)
   }
 
 }

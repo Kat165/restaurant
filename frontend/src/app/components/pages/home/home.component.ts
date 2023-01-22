@@ -66,15 +66,24 @@ export class HomeComponent {
 
   filterByCategory(categories: any) {
     let res = [];
+    console.log("dish")
     for (let category of categories) {
       for (let dish of this.ffods) {
-        if(dish.tags!=undefined)
-          for(let tag of dish.tags)
+        console.log(dish)
+        if(dish.tags!=undefined){
+          for(let tag of dish.tags){
+            console.log(tag)
             if (tag == category) {
               res.push(dish);
+              console.log(dish)
+            }
+          }
+
         }
+
       }
     }
+    console.log(res)
     return res;
   }
 
@@ -110,6 +119,7 @@ export class HomeComponent {
     for (let index = 0; index < this.foods.length; index++) {
       if(this.foods[index].id==food.id){
         this.foods[index].deleted = true
+        this.foodService.deleteById(this.foods[index].id)
       }
     }
     this.calcprice()/*
@@ -158,6 +168,7 @@ export class HomeComponent {
     if (this.filteredFood[0].length > 0) {
       this.ffods = this.filterByCuisine(this.filteredFood[0])
     }
+    else this.ffods = this.foods
 
     if (this.filteredFood[1].length > 0) {
       this.ffods = this.filterByCategory(this.filteredFood[1])

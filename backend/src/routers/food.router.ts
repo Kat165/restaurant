@@ -144,26 +144,25 @@ router.get("/opinion/:foodId", asyncHandler(
     }
 ))
 
-router.put("/update", asyncHandler(
+router.patch("/update", asyncHandler(
     async(req,res) =>{
         console.log("mmm")
         const food = await FoodModel.findById(req.params.foodId)
+        console.log(food)
         if(food != undefined)
             food.reserved = parseInt(req.params.reserved)
         res.send(food)
     }
 ))
 
-const generateTokenResponse = (user:any)=>{
-    const token = jwt.sign(
-        {email:user.email,isAdmin:user.isAdmin},
-        "TEXT_cccccccccccc",
-        {expiresIn:"30d"}
-    )
-
-    user.token = token
-    return user
-}
+router.delete("/delete/:foodId",asyncHandler(
+    async(req,res) =>{
+        console.log("del")
+        const food = await FoodModel.findById(req.params.foodId)
+        console.log(food)
+        res.send(food)
+    }
+))
 
 
 export default router;
